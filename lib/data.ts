@@ -22,3 +22,10 @@ export async function getItems(q: string, p: string): Promise<{ items: Item[]; t
   
   return { items, totalCount };
 }
+
+export async function getItem(id: string): Promise<Item> {
+  'use cache';
+  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
+  if (!res.ok) throw new Error(`Failed to fetch item ${id}`);
+  return (await res.json()) as Item;
+}

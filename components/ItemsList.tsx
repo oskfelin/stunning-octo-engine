@@ -1,5 +1,6 @@
 import { getItems, LIMIT, type Item } from '@/lib/data';
 import Pagination from './Pagination';
+import Link from 'next/link';
 
 export async function ItemsListContainer({
   searchParams
@@ -25,9 +26,11 @@ export function ItemsList({ items }: { items: Item[] }) {
   return (
     <ul className="space-y-4">
       {items.map((item) => (
-        <li key={item.id} className="p-4 border rounded shadow-sm hover:shadow-md transition-shadow">
-          <h2 className="font-bold text-lg capitalize">{item.title}</h2>
-          <p className="text-gray-600 line-clamp-2">{item.body}</p>
+        <li key={item.id}>
+          <Link href={`/items/${item.id}`} className="block p-4 border rounded shadow-sm hover:shadow-md transition-shadow">
+            <h2 className="font-bold text-lg capitalize">{item.title}</h2>
+            <p className="text-gray-600 line-clamp-2">{item.body}</p>
+          </Link>
         </li>
       ))}
     </ul>
