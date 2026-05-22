@@ -25,7 +25,7 @@ async function ItemDetails({ params }: { params: Promise<{ id: string }> }) {
     <article className="p-6 border rounded shadow-sm bg-white">
       <h1 className="text-3xl font-bold mb-4 capitalize">{item.title}</h1>
       <p className="text-gray-500 mb-6">User ID: {item.userId} | Item ID: {item.id}</p>
-      <div className="prose max-w-none text-gray-800 leading-relaxed">
+      <div className="prose text-gray-800 leading-relaxed">
         {item.body}
       </div>
     </article>
